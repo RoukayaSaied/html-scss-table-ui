@@ -14,8 +14,7 @@ table{
 
   th,
   td {
-    //border: 1px solid #9e9e9e;
-    padding: 0.5rem;
+    padding: 0.7rem;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -39,12 +38,16 @@ table{
     font-size: 14px;
   }
 
-  thead tr {
+  tfoot tr,thead tr {
     height: 56px;
   }
 
   tbody tr {
     height: 50px;
+  }
+
+  tfoot td{
+    padding: 20px;
   }
   //altered row colour
   tr:nth-child(even){
@@ -63,20 +66,7 @@ table{
   input[type = "checkbox"] {
     height: 16px;
     width: 16px;
-    cursor: pointer;border :1px solid #9e9e9e!important;
-  }
-
-  .centered-cell{
-    text-align: center;
-    justify-content:center;
-  }
-
-  .right-cell {
-    text-align: right;
-  }
-
-  .left-cell {
-    text-align: left;
+    cursor: pointer;
   }
 
   .black-text {

@@ -9,10 +9,15 @@ import {CUSTOMERS} from '../../core/constants/CUSTOMERS';
 export class FilteredTableComponent implements OnInit {
   customers = CUSTOMERS;
   isSelected = false;
+  customerNumber
+  activeCustomerNumber
   constructor() { }
 
   ngOnInit() {
-
+    this.customerNumber = this.customers.length;
+    this.activeCustomerNumber = this.customers.filter(item => item.status === 'ACTIVE').length;
   }
+
+
 
 }
