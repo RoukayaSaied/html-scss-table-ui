@@ -26,25 +26,27 @@
   <table>
     <thead>
     <tr class="bg-primary">
-      <th width="5%"> <input type="checkbox" class="checkbox"></th>
-      <th width="7%">NAME</th>
-      <th width="7%">DESCRIPTION</th>
-      <th width="5%">RATE</th>
-      <th width="5%">BALANCE</th>
-      <th width="5%">DEPOSIT</th>
+      <th width="5%"> <input type="checkbox" (change)="isSelected = !isSelected"></th>
+      <th class="left-cell" width="7%">NAME</th>
+      <th class="left-cell" width="7%">DESCRIPTION</th>
+      <th class="right-cell" width="5%">RATE</th>
+      <th class="right-cell" width="5%">BALANCE</th>
+      <th class="right-cell" width="5%">DEPOSIT</th>
       <th width="7%">STATUS</th>
       <th width="7%"><mat-icon >more_horiz</mat-icon></th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let item of customers;">
-      <td><input type="checkbox" class="checkbox"></td>
-      <td>{{item.name}}</td>
-      <td>{{item.description}}</td>
-      <td>{{item.rate}}</td>
-      <td>{{item.balance}}</td>
-      <td>{{item.deposit}}</td>
-      <td>{{item.status}}</td>
+      <td class="centered-cell"><input type="checkbox" [checked]="isSelected"></td>
+      <td><span class="black-text">{{item.name}}</span> <br> <span class="light-text">5684236583</span></td>
+      <td><span  class="two-line">{{item.description}}</span></td>
+      <td class="right-cell">{{item.rate | number : '2.2-2'}}<br> <span class="light-text">INR</span></td>
+      <td class="right-cell">
+        <span [ngStyle]="{'color': item.balance < 0 ? 'red' : (item.balance > 0 ? 'green' : null)}">{{item.balance | number : '2.2-2'}}</span>
+        <br> <span class="light-text">INR</span></td>
+      <td class="right-cell">{{item.deposit | number : '2.2-2'}}<br> <span class="light-text">INR</span></td>
+      <td class="centered-cell"><span [ngClass]="(item.status == 'ACTIVE') ? 'active-chip' : 'inactive-chip'">{{item.status}}</span></td>
       <td class="centered-cell">
           <mat-icon>edit</mat-icon>
           <mat-icon >delete</mat-icon>
