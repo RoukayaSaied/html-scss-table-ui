@@ -26,14 +26,14 @@
   <table>
     <thead>
     <tr class="bg-primary">
-      <th width="3%"> <input type="checkbox" (change)="isSelected = !isSelected"></th>
-      <th align="left" width="8%">NAME</th>
+      <th width="3%" > <input type="checkbox" (change)="isSelected = !isSelected"></th>
+      <th align="left" width="8%" ><a (click)="sort('name')"> NAME  <fa-icon [icon]="faSort"></fa-icon> </a></th>
       <th align="left" width="8%">DESCRIPTION</th>
       <th align="right" width="6%">RATE</th>
       <th align="right" width="6%">BALANCE</th>
       <th align="right" width="6%">DEPOSIT</th>
-      <th width="7%">STATUS</th>
-      <th width="7%"><mat-icon >more_horiz</mat-icon></th>
+      <th width="7%"><a (click)="sort('status')"> STATUS  <fa-icon [icon]="faSort" ></fa-icon> </a></th>
+      <th width="7%"><fa-icon [icon]="ellipsis" class="size-ellipsis"></fa-icon></th>
     </tr>
     </thead>
     <tbody>
@@ -48,16 +48,19 @@
       <td align="right">{{item.deposit | number : '2.2-2'}}<br> <span class="light-text">INR</span></td>
       <td align="center"><span [ngClass]="(item.status == 'ACTIVE') ? 'active-chip' : 'inactive-chip'">{{item.status}}</span></td>
       <td align="center">
-          <mat-icon>edit</mat-icon>
-          <mat-icon >delete</mat-icon>
-          <mat-icon >more_horiz</mat-icon>
+        <fa-icon [icon]="pen"></fa-icon>
+        <fa-icon [icon]="trashAlt" ></fa-icon>
+        <fa-icon [icon]="ellipsis" ></fa-icon>
       </td>
     </tr>
     </tbody>
     <tfoot>
       <tr>
         <td colspan="2" align="left" class="light-text">ACTIVE CUSTOMERS <strong>{{activeCustomerNumber}}</strong>/{{customerNumber}} </td>
-        <td colspan="6" align="center">a </td>
+        <td colspan="2"></td>
+        <td colspan="4">
+          <mat-paginator [pageSizeOptions]="[10, 20]" >aaa</mat-paginator>
+        </td>
       </tr>
     </tfoot>
   </table>
