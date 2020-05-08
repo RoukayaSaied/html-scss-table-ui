@@ -33,7 +33,10 @@ table{
     .size-ellipsis {
       font-size: 1.2rem;
     }
+  }
 
+  .head-colour{
+    background-color: #F4F7FC;
   }
 
   td {
@@ -59,11 +62,11 @@ table{
     padding: 0 0 0 20px;
   }
   //altered row colour
-  tr:nth-child(even){
+  tbody tr:nth-child(even){
       background-color: #F4F7FC;
   }
 
-  tr:nth-child(odd){
+  tbody tr:nth-child(odd){
       background-color:white;
   }
 
