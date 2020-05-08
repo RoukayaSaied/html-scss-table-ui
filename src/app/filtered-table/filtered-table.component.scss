@@ -41,13 +41,13 @@ table{
     font-size: 14px;
     fa-icon {
       color: #9e9e9e;
-      padding: 0 5px;
+      padding: 0 10px;
       cursor: pointer;
       font-size: 1.2rem;
     }
   }
 
-  tfoot tr,thead tr {
+  thead tr {
     height: 56px;
   }
 
@@ -56,7 +56,7 @@ table{
   }
 
   tfoot td{
-    padding: 20px;
+    padding: 0 0 0 20px;
   }
   //altered row colour
   tr:nth-child(even){
@@ -113,62 +113,69 @@ table{
     color: #9e9e9e;
     font-size: 12px;
   }
-}
 
-
-
-// filter style
-/*mat-card {
-  padding: 10px 20px;
-  height: 80px;
-  background-color: #F4F7FC;
-}
-
-.filter-icon {
-  transform: scale(1.5);
-}
-
-mat-form-field {
-  font-size: 15px;
-  padding-top: 20px;
-}
-
-button {
-  min-height: 40px;
-  align-items: center;
-  mat-icon{
-    margin-right: 5px;
+  //paginator
+  ::ng-deep .mat-icon-button {
+    width: 60px;
   }
+
+  ::ng-deep .mat-paginator-range-label {
+    margin: 0 65px 0 34px;
+  }
+
+  .mat-paginator, .mat-paginator-page-size .mat-select-trigger {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  //filter
+  .filter-icon {
+    transform: scale(1.5);
+  }
+
+  button {
+    min-height: 40px;
+    align-items: center;
+    mat-icon{
+      margin-right: 5px;
+    }
+  }
+  thead td{
+    padding : 0 20px;
+  }
+
+
+  .container{
+    width: 300px;
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
+  }
+
+  .container input[type = "search"]{
+    width: 300px;
+    height: 40px;
+    background: #DAE1EC;
+    border: none;
+    font-size: 14px;
+    font-weight: 400;
+    float: left;
+    color: #757575;
+    padding-left: 45px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+
+  .container .icon{
+    position: absolute;
+    top: 50%;
+    margin-left: 10px;
+    margin-top: 10px;
+    z-index: 1;
+    color: #757575;
+    font-weight: normal;
+  }
+
 }
-// table style
-table {
-  width: 100%;
-  table-layout: fixed;
-}
 
-th, td {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-//align cells
-.centered-cell{
-  text-align: center;justify-content:center;
-
-}
-
-::ng-deep .mat-sort-header-container{
-  justify-content: inherit;
-}
-
-.right-cell {
-  text-align: right;
-}
-
-
-
-td mat-icon {
-  color: #9e9e9e;
-}
-/**/

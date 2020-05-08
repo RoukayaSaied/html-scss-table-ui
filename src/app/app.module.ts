@@ -7,18 +7,22 @@ import { FilteredTableComponent } from './filtered-table/filtered-table.componen
 import {MaterialModule} from './material.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {NgxPaginationModule} from 'ngx-pagination';
+import {TableFilterPipe} from '../core/pipes/table-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FilteredTableComponent
+    FilteredTableComponent,
+    TableFilterPipe
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

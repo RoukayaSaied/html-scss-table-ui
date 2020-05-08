@@ -1,32 +1,30 @@
 <div class="table-container">
-  <!--mat-card fxLayout="row" fxLayoutAlign="space-between center">
-
-    <button mat-icon-button fxFlex="6" fxLayout="column">
-      <mat-icon color="primary" aria-hidden="false" aria-label="Filter" class="filter-icon">filter_list</mat-icon>
-    </button>
-
-    <div  fxFlex="30" fxLayout="column">
-      <mat-form-field appearance="outline">
-        <mat-label>Search</mat-label>
-        <input matInput placeholder="Search">
-        <mat-icon matPrefix>search</mat-icon>
-      </mat-form-field>
-    </div>
-
-
-    <div fxFlex></div>
-
-    <button mat-raised-button color="primary" fxflexalign="right" fxFlex="18" fxLayout="column">
-      <mat-icon>add_circle_outline</mat-icon>
-      Add Customer
-    </button>
-  </mat-card-->
-
 
   <table>
     <thead>
-    <tr class="bg-primary">
-      <th width="3%" > <input type="checkbox" (change)="isSelected = !isSelected"></th>
+    <tr>
+      <td>
+        <mat-icon color="primary" aria-hidden="false" aria-label="Filter" class="filter-icon">filter_list</mat-icon>
+      </td>
+      <td colspan="14" align="left">
+        <div class="box">
+          <div class="container">
+            <span class="icon"><mat-icon>search</mat-icon></span>
+            <input type="search" (keyup)="onKey($event)" placeholder="Search" />
+          </div>
+        </div>
+      </td>
+      <td colspan="3" align="left">
+        <button mat-raised-button color="primary"><mat-icon>add_circle_outline</mat-icon>Add Customer</button>
+      </td>
+    </tr>
+    </thead>
+  </table>
+
+  <table>
+    <thead>
+    <tr>
+      <th width="3%"><mat-checkbox (change)="isSelected = !isSelected"> </mat-checkbox></th>
       <th align="left" width="8%" ><a (click)="sort('name')"> NAME  <fa-icon [icon]="faSort"></fa-icon> </a></th>
       <th align="left" width="8%">DESCRIPTION</th>
       <th align="right" width="6%">RATE</th>
@@ -37,8 +35,8 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let item of customers;">
-      <td align="center"><input type="checkbox" [checked]="isSelected"></td>
+    <tr *ngFor="let item of splicedData | tableFilter: name">
+      <td align="center" style="width:55px!important;"><mat-checkbox [checked]="isSelected"></mat-checkbox></td>
       <td><span class="black-text">{{item.name}}</span> <br> <span class="light-text">5684236583</span></td>
       <td><span  class="two-line">{{item.description}}</span></td>
       <td align="right">{{item.rate | number : '2.2-2'}}<br> <span class="light-text">INR</span></td>
@@ -59,80 +57,11 @@
         <td colspan="2" align="left" class="light-text">ACTIVE CUSTOMERS <strong>{{activeCustomerNumber}}</strong>/{{customerNumber}} </td>
         <td colspan="2"></td>
         <td colspan="4">
-          <mat-paginator [pageSizeOptions]="[10, 20]" >aaa</mat-paginator>
+          <mat-paginator (page)="pageChangeEvent($event)" [pageSizeOptions]="[10, 20, 30]" [pageSize]="pageSize" [length]="customerNumber"></mat-paginator>
         </td>
       </tr>
     </tfoot>
   </table>
-    <!--table [dataSource]="dataSource" mat-table matSort matSortActive="name"
-           matSortDirection="asc" matSortDisableClear class="mat-elevation-z8">
-      <ng-container matColumnDef="select">
-        <th mat-header-cell *matHeaderCellDef width ="8%">
-          <mat-checkbox>
-          </mat-checkbox>
-        </th>
-        <td mat-cell *matCellDef="let row">
-          <mat-checkbox >
-          </mat-checkbox>
-        </td>
-      </ng-container>
-
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header  width ="13%">NAME</th>
-        <td mat-cell *matCellDef="let row" data-column-name><strong>{{row.name}}</strong>
-        </td>
-      </ng-container>
-
-      <ng-container matColumnDef="description">
-        <th mat-header-cell *matHeaderCellDef  width ="13%">DESCRIPTION</th>
-        <td mat-cell *matCellDef="let row" data-column-name>{{row.description}}
-        </td>
-      </ng-container>
-
-      <ng-container matColumnDef="rate" width ="5%" >
-        <th mat-header-cell *matHeaderCellDef  class="right-cell">RATE</th>
-        <td mat-cell *matCellDef="let row" data-column-name class="right-cell">{{row.rate}}
-        </td>
-      </ng-container>
-
-      <ng-container matColumnDef="balance" width ="5%">
-        <th mat-header-cell *matHeaderCellDef class="right-cell">BALANCE</th>
-        <td mat-cell *matCellDef="let row" data-column-name [ngStyle]="{'color': row.balance > 10 ? 'red' : 'green'}" class="right-cell">{{row.balance}}
-        </td>
-      </ng-container>
-
-      <ng-container matColumnDef="deposit" width ="5%">
-        <th mat-header-cell *matHeaderCellDef class="right-cell">DEPOSIT</th>
-        <td mat-cell *matCellDef="let row" data-column-name class="right-cell">{{row.deposit}}
-        </td>
-      </ng-container>
-
-      <ng-container matColumnDef="status" width ="5%" >
-        <th mat-header-cell *matHeaderCellDef  mat-sort-header class="centered-cell">STATUS</th>
-        <td mat-cell *matCellDef="let row" data-column-name class="centered-cell">{{row.status}}
-        </td>
-      </ng-container>
-
-      <ng-container matColumnDef="actions" width ="15%">
-        <th mat-header-cell *matHeaderCellDef class="centered-cell"><mat-icon>more_horiz</mat-icon></th>
-        <td mat-cell *matCellDef data-column-name class="centered-cell">
-          <button mat-icon-button>
-            <mat-icon >edit</mat-icon>
-          </button>
-          <button mat-icon-button>
-            <mat-icon >delete</mat-icon>
-          </button>
-          <button mat-icon-button>
-            <mat-icon >more_horiz</mat-icon>
-          </button>
-        </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table-->
-
-  <!--mat-paginator [pageSizeOptions]="[10, 20]" >aaa</mat-paginator-->
 
 </div>
 

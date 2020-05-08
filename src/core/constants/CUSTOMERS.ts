@@ -8,7 +8,7 @@ export const CUSTOMERS = [
     {"id":7,"name":"Papagena Workman","description":"Curabitur  eget, rutrum at, lorem.\n\nInteger tincidunt ante vel ipsum. Praesent blannc commodo placerat.","rate":87.00,"balance":14.00,"deposit":2.00,"status":"ACTIVE"},
     {"id":8,"name":"Bret Matthias","description":"Aliquam quisn\nSed ante. Vivamus tortor. Duis mattis egestas metus.","rate":500.00,"balance":0.00,"deposit":99.00,"status":"ACTIVE"},
     {"id":9,"name":"Barthel Workman","description":"Duis bibepibus. Duis at velit eu est congue elementulacerat ante. Nulla justo.","rate":76.00,"balance":3.00,"deposit":65.00,"status":"ACTIVE"},
-    {"id":10,"name":"Gallard Workman","description":"In hac h","rate":300.00,"balance":88.00,"deposit":50.00, "status":"ACTIVE"}/*,
+    {"id":10,"name":"Gallard Workman","description":"In hac h","rate":300.00,"balance":88.00,"deposit":50.00, "status":"ACTIVE"},
     {"id":11,"name":"Darbie","description":"Fusce posdui vel sem.","rate":3.00,"balance":88.00,"deposit":50.00,"status":"INACTIVE"},
-    {"id":12,"name":"Dusty","description":"Nulla ut e", "rate":3.00,"balance":88.00,"deposit":50.00, "status":"ACTIVE"}*/
+    {"id":12,"name":"Dusty","description":"Nulla ut e", "rate":3.00,"balance":88.00,"deposit":50.00, "status":"ACTIVE"}
 ]
